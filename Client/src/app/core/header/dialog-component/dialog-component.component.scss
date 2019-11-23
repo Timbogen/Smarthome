@@ -1,0 +1,15 @@
+@import "../../../../variables";
+
+.component-dialog {
+
+    h1 {
+        margin: 0;
+        padding: $text_margin;
+        background-color: $primary;
+    }
+
+    .dialogContent {
+        padding: 0;
+        width: 60vw;
+    }
+}

@@ -1,0 +1,15 @@
+<div class="dialog">
+    <!-- Header of the dialog -->
+    <h2 mat-dialog-title> {{data.header}} </h2>
+
+    <!-- Description -->
+    <h3> {{data.description}} </h3>
+
+    <!-- Action bar -->
+    <div class="bottom-bar">
+        <div class="right-side">
+            <button mat-raised-button class="submit-button" (click)="closeDialog()"> {{data.cancel}} </button>
+            <button mat-raised-button class="delete-button" (click)="confirmAction()"> {{data.submit}} </button>
+        </div>
+    </div>
+</div>

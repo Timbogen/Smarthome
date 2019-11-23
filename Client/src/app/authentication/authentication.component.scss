@@ -1,0 +1,65 @@
+/* Variables */
+@import "../../variables.scss";
+
+/* Padding of the mat card */
+$mat-card-padding: 20px;
+/* Height of the mat card */
+$mat-card-height: 65vh;
+/* Size of the logo */
+$logo-height: 10vh;
+
+.mat-tab-group {
+    height: calc(#{$mat-card-height} - #{$logo-height} - 2 * #{$mat-card-padding});
+}
+
+.mat-tab-label {
+    width: 50%;
+}
+
+::ng-deep .mat-tab-body-wrapper {
+    height: 100%;
+}
+
+.login-container {
+    width: 100vw;
+    height: calc(100vh - #{$header_height});
+}
+
+.bar {
+    width: 100vw;
+    height: calc(50vh - #{$header_height});
+    background-color: $primary;
+}
+
+.login-field {
+    width: 50vh;
+    height: $mat-card-height;
+    padding: $mat-card-padding 0 0;
+    text-align: center;
+}
+
+.mat-progress-spinner {
+    width: 30px !important;
+    height: 30px !important;
+    margin-top: 15px;
+    position: absolute;
+    left: calc(50% - 15px);
+}
+
+.tab-container {
+    padding: $mat-card-padding;
+}
+
+.logo {
+    height: $logo-height;
+}
+
+.login {
+    width: 100%;
+    margin-top: 5px;
+}
+
+.button {
+    background: $primary;
+    margin-top: 10px;
+}

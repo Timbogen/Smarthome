@@ -1,0 +1,17 @@
+<div class="component-dialog">
+    <div *ngIf="isCameraActive()">
+        <h1> Kamera </h1>
+        <div mat-dialog-content class="dialogContent">
+        </div>
+    </div>
+    <div *ngIf="isCellarActive()">
+        <h1> Keller </h1>
+        <div mat-dialog-content class="dialogContent">
+        </div>
+    </div>
+    <div *ngIf="isGarageActive()">
+        <h1> Garage </h1>
+        <div mat-dialog-content class="dialogContent">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="labeled-slider">
+
+    <!-- Left label of the slider -->
+    <h3 class="slider-label left"> {{leftLabel}} </h3>
+
+    <!-- The slider -->
+    <mat-slider [(ngModel)]="value"
+                (ngModelChange)="changeValue()"
+                [step]="step"
+                [max]="max"
+                [min]="min">
+    </mat-slider>
+
+    <!-- Right label of the slider -->
+    <h3 class="slider-label right"> {{rightLabel}} </h3>
+</div>

@@ -1,0 +1,7 @@
+/* Styles for the user route */
+@import "../user.component.scss";
+
+/* Here we have to add the bottom padding because we are not using a form */
+.mat-action-row {
+    padding-bottom: 16px;
+}

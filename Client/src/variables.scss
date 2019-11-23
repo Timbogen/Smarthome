@@ -1,0 +1,60 @@
+/* Global theme */
+@import "theme";
+/* Mat core module */
+@include mat-core();
+/* Theme */
+@include angular-material-theme($my-theme);
+
+/* Primary color */
+$primary: mat-color($my-theme-primary);
+/* Accent color */
+$accent: mat-color($my-theme-accent);
+/* Warn color */
+$warn: mat-color($my-theme-warn);
+
+/* Global font */
+$font: Roboto, "Helvetica Neue", sans-serif;
+
+/* Height of the header */
+$header_height: 64px;
+
+/* Y-axis start point of all the dialogs */
+$dialog_start: 100px;
+
+/* Standard margin for text */
+$text_margin: 32px;
+
+/* Standard margin for everything else */
+$standard_margin: 16px;
+
+/* Standard spacing */
+$standard_spacing: 8px;
+
+/* Height of a settings bar */
+$setting_height: 48px;
+
+/* Container to center objects */
+.center {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+/* Container for the right side */
+.right-side {
+    position: absolute;
+    right: 0;
+}
+
+/* Button to submit the changes */
+.submit-button {
+    background: $primary;
+}
+
+/* Button for delete actions */
+.delete-button {
+    background: $warn;
+}

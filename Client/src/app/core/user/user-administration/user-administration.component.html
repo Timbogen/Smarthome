@@ -1,0 +1,57 @@
+<perfect-scrollbar class="ps-show-always">
+
+    <!-- Title -->
+    <h1> Benutzer verwalten </h1>
+    <mat-divider></mat-divider>
+
+    <!-- Content -->
+    <mat-accordion>
+
+        <!-- Change the email of the user -->
+        <mat-expansion-panel *ngFor="let user of administration.users">
+
+            <!-- Header -->
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{user.username}}
+                </mat-panel-title>
+                <mat-panel-description>
+                    {{user.role}}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <!-- Content -->
+                <mat-grid-list cols="2" rowHeight="70px">
+                    <mat-grid-tile>
+                        <div> Neue Rolle auswählen </div>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field>
+                            <mat-label> Rolle wählen </mat-label>
+                            <mat-select [(value)]="role">
+                                <mat-option value="{{administrator}}"> {{administrator}} </mat-option>
+                                <mat-option value="{{member}}"> {{member}} </mat-option>
+                                <mat-option value="{{unknown}}"> {{unknown}} </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                </mat-grid-list>
+
+                <!-- Action bar -->
+                <mat-action-row>
+                    <button mat-raised-button
+                            type="submit"
+                            class="delete-button"
+                            (click)="openConfirmationDialog(user)">
+                        Löschen
+                    </button>
+                    <button mat-raised-button
+                            type="submit"
+                            class="submit-button"
+                            (click)="changeRole(user)">
+                        Rolle ändern
+                    </button>
+                </mat-action-row>
+        </mat-expansion-panel>
+    </mat-accordion>
+</perfect-scrollbar>

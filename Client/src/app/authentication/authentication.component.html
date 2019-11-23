@@ -1,0 +1,122 @@
+<div class="login-container">
+    <div class="bar"></div>
+    <mat-card class="center login-field">
+
+        <!-- The logo -->
+        <img class="logo"
+             src="../../assets/images/home.svg"
+             alt="Home Logo">
+
+        <!-- Tab menu -->
+        <mat-tab-group mat-stretch-tabs>
+
+            <!-- Login field -->
+            <mat-tab label="Login">
+                <perfect-scrollbar class="ps-show-always">
+                    <form class="tab-container"
+                          [formGroup]="loginForm"
+                          (ngSubmit)="login(loginForm.value)">
+                        <mat-form-field class="login">
+                            <label for="loginEmail"></label>
+                            <input matInput
+                                   type="email"
+                                   id="loginEmail"
+                                   formControlName="email"
+                                   placeholder="E-Mail/Benutzername">
+                            <mat-error *ngIf="registerForm.get('email').hasError('required')">
+                                E-Mail/Benutzername ist erforderlich!
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="login">
+                            <label for="loginPassword"></label>
+                            <input matInput
+                                   id="loginPassword"
+                                   type="password"
+                                   formControlName="password"
+                                   placeholder="Passwort">
+                            <mat-error *ngIf="registerForm.get('password').hasError('required')">
+                                Passwort ist erforderlich!
+                            </mat-error>
+                        </mat-form-field>
+                        <button mat-raised-button
+                                type="submit"
+                                class="button login"
+                                *ngIf="!loading"
+                                [disabled]="loginForm.invalid">
+                                Login
+                        </button>
+                        <mat-spinner *ngIf="loading"></mat-spinner>
+                    </form>
+                </perfect-scrollbar>
+            </mat-tab>
+
+            <!-- Register field-->
+            <mat-tab label="Registrieren">
+                <perfect-scrollbar class="ps-show-always">
+                    <form class="tab-container"
+                          [formGroup]="registerForm"
+                          (ngSubmit)="register(registerForm.value)">
+                        <mat-form-field class="login">
+                            <label for="registerEmail"></label>
+                            <input matInput
+                                   type="email"
+                                   id="registerEmail"
+                                   formControlName="email"
+                                   placeholder="E-Mail">
+                            <mat-error *ngIf="registerForm.get('email').hasError('email')">
+                                Bitte geben sie eine gültige E-Mail an!
+                            </mat-error>
+                            <mat-error *ngIf="registerForm.get('email').hasError('required')">
+                                E-Mail ist erforderlich!
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="login">
+                            <label for="registerUsername"></label>
+                            <input matInput
+                                   id="registerUsername"
+                                   formControlName="username"
+                                   placeholder="Benutzername">
+                            <mat-error *ngIf="registerForm.get('username').hasError('required')">
+                                Benutzername ist erforderlich!
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="login">
+                            <label for="registerPassword"></label>
+                            <input matInput
+                                   id="registerPassword"
+                                   type="password"
+                                   formControlName="password"
+                                   placeholder="Passwort">
+                            <mat-error *ngIf="registerForm.get('password').hasError('required')">
+                                Passwort ist erforderlich!
+                            </mat-error>
+                            <mat-error *ngIf="registerForm.get('password').hasError('minlength')">
+                                Passwort muss mindestens {{minPWLength}} Zeichen lang sein!
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="login">
+                            <label for="registerPasswordRepeat"></label>
+                            <input matInput
+                                   id="registerPasswordRepeat"
+                                   type="password"
+                                   formControlName="passwordRepeat"
+                                   placeholder="Passwort wiederholen">
+                            <mat-error *ngIf="registerForm.get('passwordRepeat').hasError('required')">
+                                Wiederholen sie ihr Passwort!
+                            </mat-error>
+                        </mat-form-field>
+                        <button mat-raised-button
+                                type="submit"
+                                class="button login"
+                                *ngIf="!loading"
+                                [disabled]="registerForm.invalid">
+                            Registrieren
+                        </button>
+                        <mat-spinner *ngIf="loading"></mat-spinner>
+                    </form>
+                </perfect-scrollbar>
+            </mat-tab>
+
+        </mat-tab-group>
+    </mat-card>
+</div>

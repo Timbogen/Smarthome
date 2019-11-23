@@ -1,0 +1,110 @@
+/* Global variables */
+@import "variables";
+
+/* Removes outline and sets the pointer for every button/image */
+button, img {
+    outline: 0;
+    cursor: pointer;
+}
+
+/** MATERIAL STYLES **/
+
+/* Dialog settings */
+.my-dialog {
+    position: absolute !important;
+    top: $dialog_start;
+    max-height: calc(100vh - 2 * #{$dialog_start});
+    min-width: 300px;
+    width: 60vw;
+}
+
+/* Remove padding from dialogs */
+.mat-dialog-container {
+    padding: 0 !important;
+}
+
+/* Style for a error snack bar */
+.snack-error {
+    position: absolute;
+    top: 50px;
+    right: -16px;
+    background-color: $warn;
+}
+
+/* Style for a success snack bar */
+.snack-success {
+    position: absolute;
+    top: 50px;
+    right: -16px;
+    background-color: $accent;
+}
+
+/* Responsive size for the progress spinner */
+.mat-progress-spinner svg {
+    width: inherit !important;
+    height: inherit !important;
+}
+
+/* Size of the mat tabs */
+.mat-tab-label {
+    height: 60px !important;
+}
+
+/* Remove bottom padding from action bars */
+.mat-action-row {
+    padding-bottom: 0;
+}
+
+/* Text size for mat errors */
+.mat-error {
+    font-size: 11px !important;
+}
+
+/** Remove the background of the perfect scrollbar */
+.ps__rail-y {
+    background: transparent !important;
+}
+
+/* Stretch selector fields */
+mat-form-field {
+    width: 100%;
+}
+
+/* Default margin for dividers */
+mat-divider {
+    margin-right: $text_margin;
+    margin-left: $text_margin;
+}
+
+/** TEXT STYLES**/
+
+/* Default h1 font size */
+h1 {
+    font-size: 27px !important;
+    margin: $text_margin;
+}
+
+/* Default h2 font size */
+h2 {
+    font-size: 23px !important;
+}
+
+/* Default h3 font size */
+h3 {
+    font-size: 19px !important;
+}
+
+/* Default margin */
+h1, h2, h3 {
+    font-family: $font !important;
+    font-weight: 300 !important;
+    margin-right: $text_margin;
+    margin-left: $text_margin;
+}
+
+/* Default font size for everything else */
+* {
+    font-family: $font;
+    font-size: 15px;
+    font-weight: 300;
+}

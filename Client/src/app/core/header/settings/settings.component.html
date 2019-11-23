@@ -1,0 +1,87 @@
+<perfect-scrollbar class="dialog-content">
+    <div class="scrollbar-content">
+
+        <!-- Checkbox for toggling the mobile mode -->
+        <h1> Einstellungen </h1>
+        <mat-divider></mat-divider>
+
+        <!-- Toggle the mobile view -->
+        <h2> Ansicht </h2>
+        <button mat-button class="setting">
+            <mat-slide-toggle labelPosition="before" [(ngModel)]="configuration.information.mobile">
+                <h3> Mobile Ansicht </h3>
+            </mat-slide-toggle>
+        </button>
+
+        <!-- Settings that are only visible if the desktop mode is on -->
+        <div *ngIf="!configuration.information.mobile">
+
+            <!-- Slider to change field of view -->
+            <mat-divider></mat-divider>
+            <h2> Sichtfeld </h2>
+            <h3> Aktueller Wert: {{configuration.desktop.fov}} </h3>
+            <button mat-button class="setting">
+                <labeled-slider [leftLabel]="'40'"
+                                [rightLabel]="'120'"
+                                [step]="1"
+                                [max]="120"
+                                [min]="40"
+                                [value]="configuration.desktop.fov"
+                                (change)="changeFOV($event)">
+                </labeled-slider>
+            </button>
+
+            <!-- Toggle the fast navigation -->
+            <mat-divider></mat-divider>
+            <h2> Navigation </h2>
+            <button mat-button class="setting">
+                <mat-slide-toggle labelPosition="before"
+                                  [(ngModel)]="configuration.desktop.navigation.visible"
+                                  (ngModelChange)="configurationService.saveConfiguration()">
+                    <h3> Fast-Navigation anschalten </h3>
+                </mat-slide-toggle>
+            </button>
+
+            <!-- Reset the fast navigation position -->
+            <button mat-button class="setting" *ngIf="configuration.desktop.navigation.visible" (click)="resetFastNavigation()">
+                <h3 class="button-text">
+                    Position zurücksetzen
+                </h3>
+            </button>
+
+            <!-- Camera settings -->
+            <mat-divider></mat-divider>
+            <h2> Kamera </h2>
+
+            <!-- Slider to change the mouse move speed -->
+            <h3> Mausgeschwindigkeit </h3>
+            <button mat-button class="setting">
+                <labeled-slider [leftLabel]="'Langsam'"
+                                [rightLabel]="'Schnell'"
+                                [step]="0.05"
+                                [max]="10"
+                                [min]="0.05"
+                                [value]="configuration.desktop.rotateSpeed"
+                                (change)="configuration.desktop.rotateSpeed = $event;
+                                          desktopService.controls.rotateSpeed = $event;
+                                          configurationService.saveConfiguration()">
+                </labeled-slider>
+            </button>
+
+            <!-- Slider to change the present speed -->
+            <h3> Präsentiergeschwindigkeit </h3>
+            <button mat-button class="setting">
+                <labeled-slider [leftLabel]="'Langsam'"
+                                [rightLabel]="'Schnell'"
+                                [step]="0.05"
+                                [max]="10"
+                                [min]="0.05"
+                                [value]="configuration.desktop.autoRotateSpeed"
+                                (change)="configuration.desktop.autoRotateSpeed = $event;
+                                          desktopService.controls.autoRotateSpeed = $event;
+                                          configurationService.saveConfiguration()">
+                </labeled-slider>
+            </button>
+        </div>
+    </div>
+</perfect-scrollbar>

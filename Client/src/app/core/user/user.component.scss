@@ -1,0 +1,46 @@
+/* Variables */
+@import "../../../variables.scss";
+
+/* Height of the mat tab group */
+::ng-deep .mat-tab-group {
+    height: calc(100% - #{$header_height});
+}
+
+/* Remove the padding from the expansion panel body */
+::ng-deep .mat-expansion-panel-body {
+    padding: 0;
+}
+
+/* Add the padding removed from the expansion panel body to the mat grid list */
+mat-grid-list {
+    margin: 0 24px 16px;
+}
+
+/* Stretch all divs */
+div {
+    width: 100%;
+}
+
+mat-divider {
+    margin: $text_margin 0;
+}
+
+mat-action-row {
+    padding: $standard_margin;
+}
+
+/* Add margin for the expansion panels */
+.mat-expansion-panel {
+    margin: $text_margin;
+}
+
+/* Add margin to the last child of the expansion panel */
+.mat-accordion>.mat-expansion-panel-spacing:last-child {
+    margin-bottom: $text_margin;
+}
+
+/* Changes the vertical align of the header description */
+.mat-expansion-panel-header-title {
+    flex-grow: 0;
+    width: 30vw;
+}

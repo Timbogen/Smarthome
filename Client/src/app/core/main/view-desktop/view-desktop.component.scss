@@ -1,0 +1,62 @@
+@import "../../../../variables";
+
+/* Size and position of the container */
+.home-container {
+    position: absolute;
+    top: $header_height;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - #{$header_height});
+}
+
+/* Position of the canvas */
+app-home {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Position for the */
+.navigation-container {
+    width: 230px;
+    padding: 0;
+    z-index: 1000;
+    position: absolute;
+
+    /* Draggable area */
+    .drag-container {
+        background-color: $primary;
+        height: 25px;
+        cursor: move;
+        padding: 8px 16px;
+
+        /* Title of the navigator */
+        .title {
+            float: left;
+            line-height: 25px;
+            margin: 0;
+        }
+    }
+
+    /* Drag image */
+    .navigation-images {
+        width: 25px;
+        margin-right: 10px;
+        float: left;
+        cursor: move;
+    }
+
+    /* Text of the button */
+    .navigation-text {
+        height: 25px;
+        line-height: 25px;
+        float: left;
+    }
+
+    /* Navigation buttons */
+    .navigation-button {
+        width: 100%;
+        padding: 8px 16px;
+        margin-bottom: 4px;
+    }
+}

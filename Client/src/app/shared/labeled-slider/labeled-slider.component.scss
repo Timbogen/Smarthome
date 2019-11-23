@@ -1,0 +1,40 @@
+@import "../../../variables";
+
+/* Height of the slider */
+.labeled-slider {
+    height: $setting_height;
+    padding: 0 $text_margin;
+}
+
+/* Left label */
+.slider-label {
+    float: left;
+    width: 100px;
+    height: $setting_height;
+    line-height: $setting_height;
+    margin: 0;
+
+    /* Position the text of the left label */
+    &.left {
+        text-align: start;
+    }
+
+    /* Position the text of the right label */
+    &.right {
+        text-align: end;
+    }
+}
+
+/* Hide labels if screen is too small */
+@media screen and (max-width: 600px) {
+    .slider-label {
+        display: none !important;
+    }
+}
+
+/* The slider */
+mat-slider {
+    float: left;
+    width: calc(100% - 220px);
+    margin: 0 10px;
+}

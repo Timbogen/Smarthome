@@ -1,0 +1,53 @@
+<mat-tab-group mat-stretch-tabs>
+
+    <!-- Information field -->
+    <mat-tab label="Information">
+        <perfect-scrollbar>
+            <div class="scrollbar-content" *ngIf="user">
+
+                <!-- Header -->
+                <h1> Accountinformationen </h1>
+                <mat-divider></mat-divider>
+
+                <!-- Email of the user -->
+                <h2> E-Mail </h2>
+                <h3> {{user.email}} </h3>
+                <mat-divider></mat-divider>
+
+                <!-- Username of the user -->
+                <h2> Benutzername </h2>
+                <h3> {{user.username}} </h3>
+                <mat-divider></mat-divider>
+
+                <!-- Status of the user -->
+                <h2> Rechtegruppe </h2>
+                <h3> {{user.role}} </h3>
+                <mat-divider></mat-divider>
+
+                <!-- Last time the user account was changed -->
+                <h2> Zuletzt verändert am </h2>
+                <h3> {{updatedAt}} </h3>
+                <mat-divider></mat-divider>
+
+                <!-- Creation time of the account -->
+                <h2> Erstellt am </h2>
+                <h3> {{createdAt}} </h3>
+            </div>
+        </perfect-scrollbar>
+    </mat-tab>
+
+    <!-- Edit field-->
+    <mat-tab label="Bearbeiten">
+        <perfect-scrollbar>
+            <app-user-account></app-user-account>
+        </perfect-scrollbar>
+    </mat-tab>
+
+    <!-- Administration field-->
+    <mat-tab label="Verwaltung" *ngIf="authenticationService.isAdmin()">
+        <perfect-scrollbar>
+            <app-user-administration></app-user-administration>
+        </perfect-scrollbar>
+    </mat-tab>
+
+</mat-tab-group>

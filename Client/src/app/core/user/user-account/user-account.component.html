@@ -1,0 +1,223 @@
+<perfect-scrollbar class="ps-show-always">
+
+    <!-- Title -->
+    <h1> Account bearbeiten </h1>
+    <mat-divider></mat-divider>
+
+    <mat-accordion>
+
+        <!-- Change the email of the user -->
+        <mat-expansion-panel>
+
+            <!-- Header -->
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    E-Mail
+                </mat-panel-title>
+                <mat-panel-description>
+                    {{user.email}}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <!-- Content -->
+            <form [formGroup]="emailForm"
+                  #formDirectiveEmail="ngForm"
+                  (ngSubmit)="changeEmail(formDirectiveEmail)">
+                <mat-grid-list cols="2" rowHeight="70px">
+                    <mat-grid-tile>
+                        <div> Alte E-Mail eingeben</div>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field>
+                            <label for="oldEmail"></label>
+                            <input matInput
+                                   type="email"
+                                   id="oldEmail"
+                                   placeholder="Alte E-Mail"
+                                   formControlName="oldValue">
+                            <mat-error *ngIf="emailForm.get('oldValue').hasError('required')">
+                                Alte E-Mail ist erforderlich!
+                            </mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <div> Neue E-Mail eingeben</div>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field>
+                            <label for="newEmail"></label>
+                            <input matInput
+                                   type="email"
+                                   id="newEmail"
+                                   placeholder="Neue E-Mail"
+                                   formControlName="newValue">
+                            <mat-error *ngIf="emailForm.get('newValue').hasError('required')">
+                                Neue E-Mail ist erforderlich!
+                            </mat-error>
+                            <mat-error *ngIf="emailForm.get('newValue').hasError('email')">
+                                Ungültige E-Mail!
+                            </mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                </mat-grid-list>
+
+                <!-- Action bar -->
+                <mat-action-row>
+                    <button mat-raised-button
+                            type="submit"
+                            class="submit-button"
+                            [disabled]="emailForm.invalid">
+                        Bestätigen
+                    </button>
+                </mat-action-row>
+            </form>
+        </mat-expansion-panel>
+
+        <!-- change the email of the user -->
+        <mat-expansion-panel>
+
+            <!-- Header -->
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Benutzername
+                </mat-panel-title>
+                <mat-panel-description>
+                    {{user.username}}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <!-- Content -->
+            <form [formGroup]="usernameForm"
+                  #formDirectiveUsername="ngForm"
+                  (ngSubmit)="changeUsername(formDirectiveUsername)">
+                <mat-grid-list cols="2" rowHeight="70px">
+                    <mat-grid-tile>
+                        <div> Alter Benutzername eingeben</div>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field>
+                            <label for="oldUsername"></label>
+                            <input matInput
+                                   id="oldUsername"
+                                   placeholder="Alter Benutzername"
+                                   formControlName="oldValue">
+                            <mat-error *ngIf="usernameForm.get('oldValue').hasError('required')">
+                                Alter Benutzernme ist erforderlich!
+                            </mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <div> Neuer Benutzername eingeben</div>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field>
+                            <label for="newUsername"></label>
+                            <input matInput
+                                   id="newUsername"
+                                   placeholder="Neuer Benutzername"
+                                   formControlName="newValue">
+                            <mat-error *ngIf="usernameForm.get('newValue').hasError('required')">
+                                Neuer Benutzername ist erforderlich!
+                            </mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                </mat-grid-list>
+
+                <!-- Action bar -->
+                <mat-action-row>
+                    <button mat-raised-button
+                            class="submit-button"
+                            type="submit"
+                            [disabled]="usernameForm.invalid">
+                        Bestätigen
+                    </button>
+                </mat-action-row>
+            </form>
+        </mat-expansion-panel>
+
+        <!-- change the password of the user -->
+        <mat-expansion-panel>
+
+            <!-- Header -->
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Passwort
+                </mat-panel-title>
+                <mat-panel-description>
+                    Passwort ändern
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <!-- Content -->
+            <form [formGroup]="passwordForm"
+                  #formDirectivePassword="ngForm"
+                  (ngSubmit)="changePassword(formDirectivePassword)">
+                <mat-grid-list cols="2" rowHeight="70px">
+                    <mat-grid-tile>
+                        <div> Altes Passwort eingeben</div>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field>
+                            <label for="oldPassword"></label>
+                            <input matInput
+                                   id="oldPassword"
+                                   type="password"
+                                   placeholder="Altes Passwort"
+                                   formControlName="oldValue">
+                            <mat-error *ngIf="passwordForm.get('oldValue').hasError('required')">
+                                Altes Passwort ist erforderlich!
+                            </mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <div> Neues Passwort eingeben</div>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field>
+                            <label for="newPassword"></label>
+                            <input matInput
+                                   id="newPassword"
+                                   type="password"
+                                   placeholder="Neues Passwort"
+                                   formControlName="newValue">
+                            <mat-error *ngIf="passwordForm.get('newValue').hasError('required')">
+                                Neues Passwort ist erforderlich!
+                            </mat-error>
+                            <mat-error *ngIf="passwordForm.get('newValue').hasError('minlength')">
+                                Passwort muss mindestens {{minPWLength}} Zeichen lang sein!
+                            </mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <div> Neues Passwort erneut eingeben</div>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field>
+                            <label for="newPasswordSubmit"></label>
+                            <input matInput
+                                   id="newPasswordSubmit"
+                                   type="password"
+                                   placeholder="Passwort wiederholen"
+                                   formControlName="submit">
+                            <mat-error *ngIf="passwordForm.get('submit').hasError('required')">
+                                Wiederholen sie ihr Passwort!
+                            </mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                </mat-grid-list>
+
+                <!-- Action bar -->
+                <mat-action-row>
+                    <button mat-raised-button
+                            class="submit-button"
+                            type="submit"
+                            [disabled]="passwordForm.invalid">
+                        Bestätigen
+                    </button>
+                </mat-action-row>
+            </form>
+        </mat-expansion-panel>
+
+
+    </mat-accordion>
+</perfect-scrollbar>

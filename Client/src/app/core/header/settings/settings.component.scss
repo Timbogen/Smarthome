@@ -1,0 +1,46 @@
+/* Variables */
+@import "../../../../variables.scss";
+
+.dialog-content {
+    height: calc(100vh - 2 * #{$dialog_start});
+
+    .scrollbar-content {
+
+        /* Background of the header */
+        h1 {
+            margin: 0;
+            padding: $text_margin;
+            background-color: $primary;
+        }
+
+        /* Height of slide toggles */
+        .mat-slide-toggle {
+            height: $setting_height;
+            width: 100%;
+        }
+
+        .setting {
+            padding: 0;
+            width: 100%;
+            height: $setting_height;
+            line-height: $setting_height;
+        }
+
+        .button-text {
+            position: absolute;
+            top: 0;
+            margin-top: 0;
+        }
+
+        .views {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .components {
+            padding: 0;
+            margin: 1px;
+            width: 60vw;
+        }
+    }
+}

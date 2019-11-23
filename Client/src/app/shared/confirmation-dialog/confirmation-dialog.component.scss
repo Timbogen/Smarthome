@@ -1,0 +1,24 @@
+@import "../../../variables";
+
+.dialog {
+
+    .bottom-bar {
+        position: relative;
+        width: calc(100% - 2 * #{$standard_margin});
+        height: 36px;
+        padding: 0;
+        margin: $standard_margin;
+    }
+
+    button {
+        margin-left: $standard_spacing;
+    }
+
+    h2 {
+        margin: $standard_margin;
+    }
+
+    h3 {
+        margin: 0 $standard_margin;
+    }
+}

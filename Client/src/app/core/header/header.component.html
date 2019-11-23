@@ -1,0 +1,136 @@
+<mat-toolbar [class.mat-elevation-z4]="true">
+
+    <!-- The logo -->
+    <img *ngIf="headerConfiguration.logo"
+         class="logo"
+         routerLink="/home"
+         matTooltip="Home"
+         src="../../../assets/images/home.svg"
+         alt="Home Logo">
+
+    <!-- The header text -->
+    <h1 *ngIf="headerConfiguration.title"
+        class="header-title hide-on-mobile-2">
+        Smart
+    </h1>
+    <h1 *ngIf="headerConfiguration.title"
+        class="header-title">
+        Home
+    </h1>
+    <h1 *ngIf="headerConfiguration.title"
+        class="header-title hide-on-mobile-1">
+        Niederer
+    </h1>
+
+    <!-- All the controls on the right side -->
+    <div class="right-side">
+
+        <!-- Button to navigate home -->
+        <button *ngIf="headerConfiguration.backHome"
+                mat-button
+                matTooltip="Zurück zur Hauptansicht"
+                class="header-button"
+                aria-label="Button to edit the views"
+                routerLink="/home">
+            <img src="../../../assets/images/back.svg"
+                 alt="Left-pointing arrow image">
+        </button>
+
+        <!-- Button to exit the view of a single component -->
+        <button *ngIf="headerConfiguration.backMain"
+                mat-button
+                matTooltip="Zurück zur Hauptansicht"
+                class="header-button"
+                aria-label="Button to edit the views"
+                (click)="showMainView()">
+            <img src="../../../assets/images/back.svg"
+                 alt="Left-pointing arrow image">
+        </button>
+
+        <!-- Button to open the dialog for a component -->
+        <button *ngIf="headerConfiguration.information"
+                mat-button
+                matTooltip="Informationen anzeigen"
+                class="header-button"
+                aria-label="Button to edit the views"
+                (click)="openDialogComponent()">
+            <img src="../../../assets/images/info.svg"
+                 alt="Edit image">
+        </button>
+
+        <!-- Button to stop the present mode -->
+        <button *ngIf="headerConfiguration.present && configuration.desktop.present"
+                mat-button
+                matTooltip="Präsentiermodus aussschalten"
+                class="header-button"
+                aria-label="Button to disable the present mode"
+                (click)="changePresentMode()">
+            <img src="../../../assets/images/pause.svg"
+                 alt="Pause image">
+        </button>
+
+        <!-- Button to start the present mode -->
+        <button *ngIf="headerConfiguration.present && !configuration.desktop.present"
+                mat-button
+                matTooltip="Präsentiermodus anschalten"
+                class="header-button"
+                aria-label="Button to enable the present mode"
+                (click)="changePresentMode()">
+            <img src="../../../assets/images/play.svg"
+                 alt="Play image">
+        </button>
+
+        <!-- Button to open the dialog containing the main settings -->
+        <button *ngIf="headerConfiguration.edit"
+                mat-button
+                matTooltip="Ansichten editieren"
+                class="header-button"
+                aria-label="Button to edit the views"
+                (click)="openDialogView()">
+            <img src="../../../assets/images/edit.svg"
+                 alt="Edit image">
+        </button>
+
+        <!-- Button to toggle the user dropdown -->
+        <button mat-button
+                matTooltip="Account"
+                class="header-button"
+                aria-label="Button to manage the user"
+                *ngIf="headerConfiguration.user"
+                [matMenuTriggerFor]="menu">
+            <img src="../../../assets/images/user.svg"
+                 alt="User image">
+        </button>
+
+        <!-- Dropdown for managing the account -->
+        <mat-menu #menu="matMenu">
+
+            <!-- Open the user component -->
+            <button mat-menu-item
+                    *ngIf="headerConfiguration.userEdit"
+                    routerLink="/user"
+                    matTooltip="Profil ansehen/konfigurieren"
+                    matTooltipPosition="left"> Profil
+            </button>
+
+            <!-- Logout -->
+            <button mat-menu-item
+                    (click)="logout()"
+                    matTooltip="Benutzer abmelden"
+                    matTooltipPosition="left"> Abmelden
+            </button>
+
+            <!-- Divider for the information -->
+            <mat-divider></mat-divider>
+
+            <!-- Username -->
+            <button mat-menu-item class="information-text first-text"> Benutzer: {{user.username}} </button>
+
+            <!-- User status -->
+            <button mat-menu-item class="information-text"> Status: {{user.role}} </button>
+
+        </mat-menu>
+
+    </div>
+
+</mat-toolbar>

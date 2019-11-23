@@ -1,0 +1,46 @@
+<div class="home-container">
+    <!-- Fast navigation -->
+    <mat-card class="navigation-container"
+              #navigator="cdkDrag"
+              *ngIf="configuration.desktop.navigation.visible"
+              (cdkDragEnded)="changeNavigatorPosition(navigator)"
+              [cdkDragFreeDragPosition]="{x: configuration.desktop.navigation.x, y: configuration.desktop.navigation.y}"
+              cdkDragBoundary=".home-container"
+              cdkDrag>
+
+        <!-- Title of the navigator -->
+        <div class="drag-container" cdkDragHandle>
+            <img src="../../../../assets/images/move.svg" alt="Move" class="navigation-images"/>
+            <h3 class="title"> Fast-Navigation </h3>
+        </div>
+        <mat-divider></mat-divider>
+
+        <!-- Button for toggling the camera view -->
+        <button mat-button *ngIf="!isSelected(components.CAMERA)" (click)="selectComponent(components.CAMERA)" class="navigation-button">
+            <img src="../../../../assets/images/camera.svg" alt="Camera" class="navigation-images"/>
+            <span class="navigation-text"> Kamera </span>
+        </button>
+
+        <!-- Button for toggling the cellar view -->
+        <button mat-button *ngIf="!isSelected(components.CELLAR)" (click)="selectComponent(components.CELLAR)" class="navigation-button">
+            <img src="../../../../assets/images/thermometer.svg" alt="Camera" class="navigation-images"/>
+            <span class="navigation-text"> Keller </span>
+        </button>
+
+        <!-- Button for toggling the garage view -->
+        <button mat-button *ngIf="!isSelected(components.GARAGE)" (click)="selectComponent(components.GARAGE)" class="navigation-button">
+            <img src="../../../../assets/images/car.svg" alt="Camera" class="navigation-images"/>
+            <span class="navigation-text"> Garage </span>
+        </button>
+
+        <!-- Button for toggling the garage view -->
+        <button mat-button *ngIf="!isSelected(components.HOME)" (click)="selectComponent(components.HOME)" class="navigation-button">
+            <img src="../../../../assets/images/back.svg" alt="Camera" class="navigation-images"/>
+            <span class="navigation-text"> Zurück </span>
+        </button>
+
+    </mat-card>
+
+    <!-- 3D Scene -->
+    <app-home></app-home>
+</div>
